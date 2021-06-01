@@ -2,9 +2,8 @@ import React from "react";
 import "./Styles/projectTitle.scss";
 import "react-animated-slider/build/horizontal.css";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import routes from "./Config/routes";
 import { Spinner } from "reactstrap";
-import { MainLayout } from "./Components/Layout";
+import { MainLayout } from "./Components";
 
 const DemoPage = React.lazy(() => import("./Pages/DemoPage"));
 
@@ -16,12 +15,6 @@ function App() {
   return (
     <BrowserRouter basename={getBasename()}>
       <Switch>
-        {/* <LayoutRoute
-              exactgit
-              path={routes.signIn}
-              layout={EmptyLayout}
-              component={SignInPage}
-            /> */}
         <React.Fragment>
           <MainLayout>
             <React.Suspense
@@ -31,7 +24,7 @@ function App() {
                 </div>
               }
             >
-              <Route exact path={routes.homePage} component={DemoPage} />
+              <Route exact path="/" component={DemoPage} />
             </React.Suspense>
           </MainLayout>
         </React.Fragment>
